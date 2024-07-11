@@ -10,7 +10,7 @@ namespace FlightManagementSystem.Application.Commands
 {
     public class CheckInPassengerCommand : IRequest
     {
-        public Guid FlightId { get; private set; }
+        public int FlightId { get; private set; }
         public string PassengerName { get; private set; }
         public double BaggageWeight { get; private set; }
 

@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FlightManagementSystem.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class CheckInController : Controller
     {
         private readonly IMediator _mediator;

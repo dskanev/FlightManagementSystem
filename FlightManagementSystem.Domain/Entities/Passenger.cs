@@ -8,15 +8,16 @@ namespace FlightManagementSystem.Domain.Entities
 {
     public class Passenger
     {
-        public Guid Id { get; private set; }
-        public string Name { get; private set; }
-        public double BaggageWeight { get; private set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public double BaggageWeight { get; set; }
+        public int FlightId { get; set; }
 
-        public Passenger(string name, double baggageWeight)
+        public Passenger(string name, double baggageWeight, int flightId)
         {
-            Id = Guid.NewGuid();
             Name = name;
             BaggageWeight = baggageWeight;
+            FlightId = flightId;
         }
     }
 }

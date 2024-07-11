@@ -3,13 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagementSystem", "FlightManagementSystem\FlightManagementSystem.csproj", "{80891FBC-6543-440B-9E9F-C5609DEB78FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManagementSystem", "FlightManagementSystem\FlightManagementSystem.csproj", "{80891FBC-6543-440B-9E9F-C5609DEB78FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagementSystem.Domain", "FlightManagementSystem.Domain\FlightManagementSystem.Domain.csproj", "{F58BD39C-A069-4BA5-8759-5E86225B9911}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManagementSystem.Domain", "FlightManagementSystem.Domain\FlightManagementSystem.Domain.csproj", "{F58BD39C-A069-4BA5-8759-5E86225B9911}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagementSystem.Application", "FlightManagementSystem.Application\FlightManagementSystem.Application.csproj", "{324598DA-E758-4CA8-BD45-27857D011032}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManagementSystem.Application", "FlightManagementSystem.Application\FlightManagementSystem.Application.csproj", "{324598DA-E758-4CA8-BD45-27857D011032}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagementSystem.Infrastructure", "FlightManagementSystem.Infrastructure\FlightManagementSystem.Infrastructure.csproj", "{328C7E75-7172-46B9-A726-1FBA2A1F2E2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManagementSystem.Infrastructure", "FlightManagementSystem.Infrastructure\FlightManagementSystem.Infrastructure.csproj", "{328C7E75-7172-46B9-A726-1FBA2A1F2E2F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManagementSystem.Tests", "FlightManagementSystem.Tests\FlightManagementSystem.Tests.csproj", "{46842960-CF8E-4A0A-9FF2-01AAF2D5CF45}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{799132C2-09C1-4AF5-A362-02890E411687}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +40,10 @@ Global
 		{328C7E75-7172-46B9-A726-1FBA2A1F2E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{328C7E75-7172-46B9-A726-1FBA2A1F2E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{328C7E75-7172-46B9-A726-1FBA2A1F2E2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46842960-CF8E-4A0A-9FF2-01AAF2D5CF45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46842960-CF8E-4A0A-9FF2-01AAF2D5CF45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46842960-CF8E-4A0A-9FF2-01AAF2D5CF45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46842960-CF8E-4A0A-9FF2-01AAF2D5CF45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

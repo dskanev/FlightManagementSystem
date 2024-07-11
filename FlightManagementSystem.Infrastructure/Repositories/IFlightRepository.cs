@@ -9,7 +9,7 @@ namespace FlightManagementSystem.Infrastructure.Data
 {
     public interface IFlightRepository
     {
-        Task<Flight> GetByIdAsync(Guid id);
+        Task<Flight> GetByIdAsync(int id);
         Task UpdateAsync(Flight flight);
     }
 }

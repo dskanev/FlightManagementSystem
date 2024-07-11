@@ -4,6 +4,7 @@ using FlightManagementSystem.Domain.Exceptions;
 using FlightManagementSystem.Domain.Specifications;
 using FlightManagementSystem.Infrastructure.Data;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,23 +24,31 @@ namespace FlightManagementSystem.Application.Handlers
 
         public async Task Handle(CheckInPassengerCommand request, CancellationToken cancellationToken)
         {
-            var flight = await _flightRepository
-                .GetByIdAsync(request.FlightId);
-
-            if (flight == null)
+            try
             {
-                throw new DomainException("Flight not found.");
+                var flight = await _flightRepository
+                    .GetByIdAsync(request.FlightId);
+
+                if (flight == null)
+                {
+                    throw new DomainException("Flight not found.");
+                }
+
+                var passenger = new Passenger(
+                    request.PassengerName,
+                    request.BaggageWeight,
+                    flight.Id);
+
+                flight
+                    .CheckInPassenger(passenger);
+
+                await _flightRepository
+                    .UpdateAsync(flight);
             }
-
-            var passenger = new Passenger(
-                request.PassengerName,
-                request.BaggageWeight);
-
-            flight
-                .CheckInPassenger(passenger);
-
-            await _flightRepository
-                .UpdateAsync(flight);
+            catch(DbUpdateConcurrencyException ex)
+            {
+                await this.Handle(request, cancellationToken);
+            }
         }
     }
 }
