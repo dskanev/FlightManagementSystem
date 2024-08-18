@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlightManagementSystem.Application.Models
+namespace FlightManagementSystem.Domain.Models.Input
 {
     public class CheckInPassengerInputModel
     {

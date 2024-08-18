@@ -3,6 +3,8 @@ using FlightManagementSystem.Application.Handlers;
 using FlightManagementSystem.Application.Models;
 using FlightManagementSystem.Domain.Entities;
 using FlightManagementSystem.Domain.Exceptions;
+using FlightManagementSystem.Domain.Models;
+using FlightManagementSystem.Domain.Models.Input;
 using FlightManagementSystem.Infrastructure.Data;
 using FlightManagementSystem.Infrastructure.Database;
 using FlightManagementSystem.Tests.Fixtures;

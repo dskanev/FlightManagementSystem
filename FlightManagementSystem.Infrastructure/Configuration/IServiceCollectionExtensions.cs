@@ -1,5 +1,6 @@
 ﻿using FlightManagementSystem.Infrastructure.Data;
 using FlightManagementSystem.Infrastructure.Database;
+using FlightManagementSystem.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +27,7 @@ namespace FlightManagementSystem.Infrastructure.Configuration
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<IFlightRepository, FlightRepository>();
+            services.AddScoped<IOrdersRepository, OrdersRepository>();
 
             return services;
         }

@@ -1,4 +1,5 @@
 ﻿using FlightManagementSystem.Domain.Entities;
+using FlightManagementSystem.Domain.Entities.Orders;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,10 @@ namespace FlightManagementSystem.Infrastructure.Database
     {
         public DbSet<Flight> Flights { get; set; }
         public DbSet<Passenger> Passengers { get; set; }
+        public DbSet<Address> Address { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         public FlightManagementContext(DbContextOptions<FlightManagementContext> options)
             : base(options)

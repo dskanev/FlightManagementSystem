@@ -3,6 +3,7 @@ using System;
 using FlightManagementSystem.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FlightManagementSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(FlightManagementContext))]
-    partial class FlightManagementContextModelSnapshot : ModelSnapshot
+    [Migration("20240818123445_OrderModels")]
+    partial class OrderModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -151,10 +154,15 @@ namespace FlightManagementSystem.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<Guid?>("OrderId")
+                        .HasColumnType("uuid");
+
                     b.Property<double>("Price")
                         .HasColumnType("double precision");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
 
                     b.ToTable("Products");
                 });
@@ -184,21 +192,6 @@ namespace FlightManagementSystem.Infrastructure.Migrations
                     b.ToTable("Passengers");
                 });
 
-            modelBuilder.Entity("OrderProduct", b =>
-                {
-                    b.Property<Guid>("OrdersId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("ProductsId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("OrdersId", "ProductsId");
-
-                    b.HasIndex("ProductsId");
-
-                    b.ToTable("OrderProduct");
-                });
-
             modelBuilder.Entity("FlightManagementSystem.Domain.Entities.Orders.Customer", b =>
                 {
                     b.HasOne("FlightManagementSystem.Domain.Entities.Orders.Address", "Address")
@@ -219,6 +212,13 @@ namespace FlightManagementSystem.Infrastructure.Migrations
                     b.Navigation("Customer");
                 });
 
+            modelBuilder.Entity("FlightManagementSystem.Domain.Entities.Orders.Product", b =>
+                {
+                    b.HasOne("FlightManagementSystem.Domain.Entities.Orders.Order", null)
+                        .WithMany("Products")
+                        .HasForeignKey("OrderId");
+                });
+
             modelBuilder.Entity("FlightManagementSystem.Domain.Entities.Passenger", b =>
                 {
                     b.HasOne("FlightManagementSystem.Domain.Entities.Flight", null)
@@ -228,24 +228,14 @@ namespace FlightManagementSystem.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("OrderProduct", b =>
-                {
-                    b.HasOne("FlightManagementSystem.Domain.Entities.Orders.Order", null)
-                        .WithMany()
-                        .HasForeignKey("OrdersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("FlightManagementSystem.Domain.Entities.Orders.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("FlightManagementSystem.Domain.Entities.Flight", b =>
                 {
                     b.Navigation("Passengers");
+                });
+
+            modelBuilder.Entity("FlightManagementSystem.Domain.Entities.Orders.Order", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

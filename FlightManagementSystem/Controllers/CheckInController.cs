@@ -1,6 +1,6 @@
 ﻿using FlightManagementSystem.Application.Commands;
-using FlightManagementSystem.Application.Models;
 using FlightManagementSystem.Domain.Exceptions;
+using FlightManagementSystem.Domain.Models.Input;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

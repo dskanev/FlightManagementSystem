@@ -2,6 +2,8 @@
 using FlightManagementSystem.Application.Models;
 using FlightManagementSystem.Controllers;
 using FlightManagementSystem.Domain.Exceptions;
+using FlightManagementSystem.Domain.Models;
+using FlightManagementSystem.Domain.Models.Input;
 using FluentAssertions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
